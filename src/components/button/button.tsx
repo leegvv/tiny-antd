@@ -52,7 +52,7 @@ const Button: React.FC<ButtonProps> = (props) => {
         {
             [`btn-${type}`]: type,
             [`btn-${size}`]: size,
-            'disabled': (type === 'link') && disabled
+            disabled: (type === 'link') && disabled
         }
     );
 
@@ -66,19 +66,17 @@ const Button: React.FC<ButtonProps> = (props) => {
                 {children}
             </a>
         );
-    } else {
-        return (
-            <button
-                className={classes}
-                disabled={disabled}
-                {...restProps}
-            >
-                {children}
-            </button>
-        );
     }
+    return (
+        <button
+            className={classes}
+            disabled={disabled}
+            {...restProps}
+        >
+            {children}
+        </button>
+    );
 };
 
 export default Button;
-
 

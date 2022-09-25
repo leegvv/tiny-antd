@@ -1,4 +1,5 @@
 const CracoLessPlugin = require('craco-less');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     plugins: [
@@ -7,11 +8,20 @@ module.exports = {
             options: {
                 lessLoaderOptions: {
                     lessOptions: {
-                        modifyVars: { '@primary-color': '#1DA57A' },
-                        javascriptEnabled: true,
-                    },
-                },
-            },
-        },
+                        javascriptEnabled: true
+                    }
+                }
+            }
+        }
     ],
+    webpack: {
+        plugins: {
+            add: [
+                new StylelintPlugin({
+                    extensions: ['css', 'less'],
+                    files: '**/*.(less|css)'
+                })
+            ]
+        }
+    }
 };
