@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import {tuple
-} from '../_util/type';
+import {tuple} from '../_util/type';
 
 const ButtonSizes = tuple('lg', 'sm');
 export type ButtonSize = typeof ButtonSizes[number];

@@ -1,5 +1,5 @@
 import {render, screen, fireEvent} from '@testing-library/react';
-import Button, {ButtonProps} from './button';
+import Button, {ButtonProps} from './Button';
 
 const defaultProps: ButtonProps = {
     onClick: jest.fn()
