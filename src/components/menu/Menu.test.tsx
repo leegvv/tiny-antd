@@ -20,8 +20,11 @@ const generateMenu = (props: MenuProps) => {
             <Menu.Item>xyz</Menu.Item>
         </Menu>
     );
-}
-let wrapper: RenderResult, menuElement: HTMLElement, activeElement: HTMLElement, disabledElement: HTMLElement;
+};
+let wrapper: RenderResult;
+let menuElement: HTMLElement;
+let activeElement: HTMLElement;
+let disabledElement: HTMLElement;
 
 describe('test Menu component', () => {
     beforeEach(() => {
@@ -30,14 +33,14 @@ describe('test Menu component', () => {
         activeElement = screen.getByText('active');
         disabledElement = screen.getByText('disabled');
     });
-    it('should render correct Menu based on default props',  () => {
+    it('should render correct Menu based on default props', () => {
         expect(menuElement).toBeInTheDocument();
         expect(menuElement).toHaveClass('menu test');
         expect(menuElement.getElementsByTagName('li').length).toEqual(3);
         expect(activeElement).toHaveClass('menu-item is-active');
         expect(disabledElement).toHaveClass('menu-item is-disabled');
     });
-    it('should change the active item when click the item', function () {
+    it('should change the active item when click the item', function() {
         const thirdItem = screen.getByText('xyz');
         fireEvent.click(thirdItem);
         expect(thirdItem).toHaveClass('is-active');
@@ -50,9 +53,7 @@ describe('test Menu component', () => {
     it('should render vertical mode', () => {
         cleanup();
         render(generateMenu(testVerProps));
-        const menuElement = screen.getByTestId('test-menu');
+        menuElement = screen.getByTestId('test-menu');
         expect(menuElement).toHaveClass('menu-vertical');
     });
-
-
-})
+});
